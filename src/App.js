@@ -1,32 +1,19 @@
 import React from 'react';
-import Potato from './potato';
-import propTypes from 'prop-types';
+import { HashRouter, Route} from 'react-router-dom';
+import Home from './routes/Home'
+import About from './routes/About';
+import Detail from './routes/Detail'
+import Navigator from './Component/Navigator';
 
-
-
-class App extends React.Component {
-  constructor(props){
-    super(props);
-    console.log('hello')
-  }
-  state = {
-    isLoading: true
-  };
-  componentDidMount(){
-    setTimeout(()=>{
-      this.setState({isLoading: false});
-    },1000)
-  }
-  render(){
-    console.log('render');
-    const { isLoading } = this.state;
-    return (
-      <div className="App">
-        {isLoading ? 'Loadding...' : 'We are ready'}
-      </div>
-    );
-  }
-  }
-
+function App(){
+  return (
+    <HashRouter>
+      <Navigator></Navigator>
+      <Route path="/" exact={true} component={Home}></Route>
+      <Route path="/about" component={About}></Route>
+      <Route path="/movie/:id" component={Detail}></Route>
+    </HashRouter>
+  );
+}
 
 export default App;
