@@ -1,21 +1,21 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import '../css/Movie.css'
 
 function Movie({id,title,year,summary,poster,genres}){
-    
     return(
-        <div className="movie">
-            <Link to={{
-                pathname: `/movie/${id}`,
-                state: {
-                    title,
-                    year,
-                    summary:summary,
-                    poster,
-                    genres
-                }
-            }}>
+        <Link
+         to={{
+             pathname: '/movie-detail',
+             state: {
+                 title,
+                 year,
+                 summary,
+                 poster,
+                 genres
+             }
+         }}>
+            <div className="movie">
                 <img src={poster} alt={title}></img>
                 <div className="movie_data">
                     <h3 className="movie_title">{title}</h3>
@@ -31,8 +31,8 @@ function Movie({id,title,year,summary,poster,genres}){
                         })}
                     </ul>
                 </div>
-                </Link>
             </div>
+        </Link>
     )
 }
 

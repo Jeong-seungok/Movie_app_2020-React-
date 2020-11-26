@@ -1,6 +1,7 @@
 import React from 'react';
 import Movie from '../Component/Movie';
 import propTypes from 'prop-types';
+import {CircularProgress} from '@material-ui/core';
 import axios from 'axios';
 import '../css/Home.css'
 
@@ -29,7 +30,7 @@ class Home extends React.Component {
       <div className="App">
         {isLoading ? 
           <div className="loader">
-            <span className="loader_txt">loading...</span>
+            <span className="loader_txt"><CircularProgress/></span>
           </div> : 
           <div className="movies">
             {movies.map(movie=>
